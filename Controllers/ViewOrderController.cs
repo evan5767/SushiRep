@@ -58,10 +58,8 @@ namespace Sushi.Controllers
                 return NotFound();
             }
 
-            // Удаление деталей заказа
             _appDBcontent.OrderDetail.RemoveRange(order.OrderDetails);
 
-            // Удаление заказа
             _appDBcontent.Order.Remove(order);
 
             await _appDBcontent.SaveChangesAsync();
