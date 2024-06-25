@@ -106,19 +106,11 @@ namespace WebApplication1.Controllers
 
             var message = new MimeMessage();
 
-            //от кого отправляем и заголовок
-
             message.From.Add(new MailboxAddress("Информация о заказе", "wania1999@yahoo.com"));
-
-            //кому отправляем
 
             message.To.Add(new MailboxAddress(order.Name, order.Email));
 
-            //тема письма
-
             message.Subject = "Спасибо за заказ!";
-
-            //тело письма
 
             message.Body = new TextPart("plain")
 
@@ -132,11 +124,8 @@ namespace WebApplication1.Controllers
 
             {
 
-                //Указываем smtp сервер почты и порт
 
                 client.Connect("smtp.mail.yahoo.com", 587, false);
-
-                //Указываем свой Email адрес и пароль приложения
 
                 client.Authenticate("wania1999@yahoo.com", "cdkbqnzkfeikjowd");
 
